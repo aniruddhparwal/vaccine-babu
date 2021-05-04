@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/vaccine-babu/static/css/main.da5982af.chunk.css",
-    "main.js": "/vaccine-babu/static/js/main.f88f4779.chunk.js",
-    "main.js.map": "/vaccine-babu/static/js/main.f88f4779.chunk.js.map",
+    "main.js": "/vaccine-babu/static/js/main.32798dd4.chunk.js",
+    "main.js.map": "/vaccine-babu/static/js/main.32798dd4.chunk.js.map",
     "runtime-main.js": "/vaccine-babu/static/js/runtime-main.edb607de.js",
     "runtime-main.js.map": "/vaccine-babu/static/js/runtime-main.edb607de.js.map",
-    "static/js/2.569b4dec.chunk.js": "/vaccine-babu/static/js/2.569b4dec.chunk.js",
-    "static/js/2.569b4dec.chunk.js.map": "/vaccine-babu/static/js/2.569b4dec.chunk.js.map",
+    "static/js/2.56fe2988.chunk.js": "/vaccine-babu/static/js/2.56fe2988.chunk.js",
+    "static/js/2.56fe2988.chunk.js.map": "/vaccine-babu/static/js/2.56fe2988.chunk.js.map",
     "static/js/3.316196fe.chunk.js": "/vaccine-babu/static/js/3.316196fe.chunk.js",
     "static/js/3.316196fe.chunk.js.map": "/vaccine-babu/static/js/3.316196fe.chunk.js.map",
     "index.html": "/vaccine-babu/index.html",
     "static/css/main.da5982af.chunk.css.map": "/vaccine-babu/static/css/main.da5982af.chunk.css.map",
-    "static/js/2.569b4dec.chunk.js.LICENSE.txt": "/vaccine-babu/static/js/2.569b4dec.chunk.js.LICENSE.txt",
+    "static/js/2.56fe2988.chunk.js.LICENSE.txt": "/vaccine-babu/static/js/2.56fe2988.chunk.js.LICENSE.txt",
     "static/media/loader.dab66597.png": "/vaccine-babu/static/media/loader.dab66597.png"
   },
   "entrypoints": [
     "static/js/runtime-main.edb607de.js",
-    "static/js/2.569b4dec.chunk.js",
+    "static/js/2.56fe2988.chunk.js",
     "static/css/main.da5982af.chunk.css",
-    "static/js/main.f88f4779.chunk.js"
+    "static/js/main.32798dd4.chunk.js"
   ]
 }
