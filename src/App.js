@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import InfoContainer from './Component/InfoContainer';
 import Loader from './Component/Loader';
+import InfoContainer from './Component/InfoContainer'
 import './style/style.css';
 
 function App() {
@@ -63,20 +63,21 @@ function App() {
         .then(response => response.json())
         .then(Locationdata => {
           console.log("location data", Locationdata)
+          console.log("nn", Locationdata.results[0].address_components.length - 3);
           // console.log("aa", Locationdata.address.postcode)
           fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`)
             .then(responsestate => responsestate.json())
             .then(StateList => {
               console.log(StateList)
               StateList.states.map(state => {
-                if (state.state_name === Locationdata.results[5].address_components[1].long_name) {
+                if (state.state_name === Locationdata.results[0].address_components[Locationdata.results[0].address_components.length - 3].long_name) {
                   console.log("state_id is ", state.state_id)
                   fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state.state_id}`)
                     .then(responsedistrict => responsedistrict.json())
                     .then(DistrictData => {
                       console.log(DistrictData)
                       DistrictData.districts.map(district => {
-                        if (district.district_name === Locationdata.results[5].address_components[0].long_name) {
+                        if (district.district_name === Locationdata.results[0].address_components[Locationdata.results[0].address_components.length - 4].long_name) {
                           console.log("district_id is ", district.district_id)
                           fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district.district_id}&date=04-05-2021`)
                             .then(response => response.json())

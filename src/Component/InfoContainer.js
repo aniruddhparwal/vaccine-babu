@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import InfoBlock from './InfoBlock';
 
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -37,12 +38,13 @@ function InfoContainer({ data }) {
     var from = data.centers[0].sessions[0].date.split("-")
     var f = new Date(from[2], from[1] - 1, from[0])
     console.log(f, "Date")
+    console.log(data, "Data")
     return (
         <div className="infoContainer">
             {/* {data.centers.map(each => (<h1>{each.center_id}</h1>))} */}
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
                             <StyledTableCell>Name of Center</StyledTableCell>
                             <StyledTableCell align="right">{`${f.getDate()}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
@@ -60,13 +62,13 @@ function InfoContainer({ data }) {
                                 <StyledTableCell component="th" scope="row">
                                     {each.name}
                                 </StyledTableCell>
-                                <StyledTableCell align="right"><InfoBlock info={each.sessions[0]} /></StyledTableCell>
-                                <StyledTableCell align="right"><InfoBlock info={each.sessions[1]} /></StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[2] ? <InfoBlock info={each.sessions[2]} /> : <></>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[3] ? <InfoBlock info={each.sessions[2]} /> : <></>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[4] ? <InfoBlock info={each.sessions[2]} /> : <></>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[5] ? <InfoBlock info={each.sessions[2]} /> : <></>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[6] ? <InfoBlock info={each.sessions[2]} /> : <></>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[0] ? <InfoBlock info={each.sessions[0]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[1] ? <InfoBlock info={each.sessions[1]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[2] ? <InfoBlock info={each.sessions[2]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[3] ? <InfoBlock info={each.sessions[3]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[4] ? <InfoBlock info={each.sessions[4]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[5] ? <InfoBlock info={each.sessions[5]} /> : <>NAN</>}</StyledTableCell>
+                                <StyledTableCell align="right">{each.sessions[6] ? <InfoBlock info={each.sessions[6]} /> : <>NAN</>}</StyledTableCell>
                             </StyledTableRow>
                         ))}
                     </TableBody>
