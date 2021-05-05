@@ -11,6 +11,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -35,5 +39,190 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .infoBlock {
+    width: 26%;
+  }
+}
+
+.infoBlock span div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.infoBlock span div .MuiSvgIcon-root {
+  margin-right: 10px;
+}
+
+.blue {
+  background: cornflowerblue;
+}
+
+.green {
+  background: green;
+}
+
+.mainContainer__data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+}
+
+.mainContainer__option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContainer__option .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainContainer__table {
+  width: 100vw;
+}
+
+.mainContainer__table p {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.infoContainer__table--header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.infoContainer__table--body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.infoContainer__table--bodyEntry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0px;
+  background: cornsilk;
+}
+
+@media only screen and (max-width: 1024px) {
+  .infoContainer__table--bodyEntry {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.infoContainer__table--body--availabilty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+  overflow-x: auto;
+}
+
+.infoContainer__table--body--name {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  margin: auto 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+.infoContainer__table--body--name .MuiSvgIcon-root {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .infoContainer__table--body--name {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.locationWaiting__wait {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.locationWaiting__denied {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.locationWaiting__denied--denied {
+  width: 200px;
+  height: 200px;
 }
 /*# sourceMappingURL=style.css.map */

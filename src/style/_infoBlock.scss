@@ -1,4 +1,24 @@
 .infoBlock{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width:20%;
+    padding: 10px;
+    margin: 0px 10px;
+    @media #{$media-desktop} {
+        width:26%;
+    }
+    span div{
+        display: flex;
+        align-items: center;
+        .MuiSvgIcon-root{
+            margin-right: 10px;
+    }
+}
+}
+.blue{
+    background: cornflowerblue;
+}
+.green{
+    background: green;
 }

@@ -3,12 +3,17 @@ import { useEffect, useState } from 'react';
 import Loader from './Loader';
 import InfoContainer from './InfoContainer'
 import { InputLabel, MenuItem, Select } from '@material-ui/core';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 
 function MainContainer({ stateList }) {
     const [data, setData] = useState([])
     const [state, setState] = useState('')
-
+    const [filterValue, setFilterValue] = useState(0);
     const [district, setDistrict] = useState('')
     const [districtList, setDistrictList] = useState('')
     const [dataAvailable, setDataAvailable] = useState(false)
@@ -26,8 +31,10 @@ function MainContainer({ stateList }) {
             .then(response => response.json())
             .then(data => {
                 setData(data)
+                // const result = data.centers.map(eachCenter => eachCenter.sessions.map().filter(eachsession => eachsession.min_age_limit == { filterValue }));
+
                 setDataAvailable(true)
-                console.log("Main data", data)
+                console.log("Main data set", data)
             })
     }
     useEffect(() => {
@@ -78,36 +85,48 @@ function MainContainer({ stateList }) {
         setDataAvailable(false)
         getData(event.target.value)
     };
+    const handleChangeFilter = (event) => {
+        setFilterValue(event.target.value);
+    };
     return (
         <div className="mainContainer">
-            <InputLabel id="demo-simple-select-label">State</InputLabel>
-            <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={state}
-                onChange={handleChangeState}
-            >
-                {stateList.states.map(state => (
-                    <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
-                ))}
-
-            </Select>
-            {districtList && <>
-                <InputLabel id="demo-simple-select-label">District</InputLabel>
+            <div className="mainContainer__option">
+                <InputLabel id="demo-simple-select-label">State</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={district}
-                    onChange={handleChangeDistrict}
+                    value={state}
+                    onChange={handleChangeState}
                 >
-                    {districtList.map(district => (
-                        <MenuItem key={district.district_id} value={district.district_id}>{district.district_name}</MenuItem>
+                    {stateList.states.map(state => (
+                        <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
                     ))}
-
                 </Select>
-            </>}
-
-            {!dataAvailable ? <Loader district={district} /> : <InfoContainer data={data} />}
+                {districtList && <>
+                    <InputLabel id="demo-simple-select-label">District</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={district}
+                        onChange={handleChangeDistrict}
+                    >
+                        {districtList.map(district => (
+                            <MenuItem key={district.district_id} value={district.district_id}>{district.district_name}</MenuItem>
+                        ))}
+                    </Select>
+                </>}
+                {/* {districtList && <FormControl component="fieldset">
+                    <FormLabel component="legend">Filter</FormLabel>
+                    <RadioGroup className="option" aria-label="gender" name="gender1" value={filterValue} onChange={handleChangeFilter}>
+                        <FormControlLabel value="0" control={<Radio />} label="All" />
+                        <FormControlLabel value="18" control={<Radio />} label="+18" />
+                        <FormControlLabel value="45" control={<Radio />} label="+45" />
+                    </RadioGroup>
+                </FormControl>} */}
+            </div>
+            <div className="mainContainer__data">
+                {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table"><p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p><InfoContainer data={data} /></div>}
+            </div>
         </div>
     )
 }

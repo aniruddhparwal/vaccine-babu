@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import InfoBlock from './InfoBlock';
+import { HomeWork } from '@material-ui/icons';
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -42,7 +43,7 @@ function InfoContainer({ data }) {
     return (
         <div className="infoContainer">
             {/* {data.centers.map(each => (<h1>{each.center_id}</h1>))} */}
-            <TableContainer component={Paper}>
+            {/* <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead >
                         <TableRow>
@@ -73,7 +74,25 @@ function InfoContainer({ data }) {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </TableContainer> */}
+
+
+            <div className="infoContainer__table">
+                {/* <div className="infoContainer__table--header">
+                    <div className="infoContainer__table--header--name">Name of Center</div>
+                    <div className="infoContainer__table--header--availabilty">Avability</div>
+                </div> */}
+                <div className="infoContainer__table--body">
+                    {data.centers.map(center => (
+                        <div className="infoContainer__table--bodyEntry">
+                            <div className="infoContainer__table--body--name"><HomeWork /> {center.name}</div>
+                            <div className="infoContainer__table--body--availabilty">{
+                                center.sessions.map(session => (<InfoBlock info={session} />))
+                            }</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div >
     )
 }
