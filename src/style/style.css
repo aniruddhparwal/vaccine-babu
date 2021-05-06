@@ -6,6 +6,7 @@
 .app {
   background-color: #F4D35E;
   color: #FAF0CA;
+  padding: 5px;
 }
 
 .loader {
@@ -44,7 +45,7 @@
       -ms-flex-align: center;
           align-items: center;
   color: #EE964B;
-  width: 20%;
+  min-width: 25%;
   padding: 10px;
   margin: 10px 10px;
   border-radius: 5px;
@@ -56,9 +57,12 @@
   .infoBlock {
     width: 26%;
   }
+  .infoBlock span:nth-child(1) .MuiSvgIcon-root {
+    display: none;
+  }
 }
 
-.infoBlock span div {
+.infoBlock span, .infoBlock div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,7 +71,7 @@
           align-items: center;
 }
 
-.infoBlock span div .MuiSvgIcon-root {
+.infoBlock span .MuiSvgIcon-root, .infoBlock div .MuiSvgIcon-root {
   margin-right: 10px;
 }
 
@@ -79,6 +83,10 @@
 .green {
   background: #FA765C;
   color: #0d3b66;
+}
+
+.mainContainer {
+  min-height: 100vh;
 }
 
 .mainContainer__data {
@@ -126,6 +134,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   color: #0d3b66;
+  padding: 5px;
+  font-size: 0.8rem;
 }
 
 .infoContainer__table--header {
@@ -262,5 +272,23 @@
 
 .footer a {
   text-decoration: none;
+}
+
+.stateWaitLoader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 /*# sourceMappingURL=style.css.map */

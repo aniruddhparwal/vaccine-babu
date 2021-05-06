@@ -5,6 +5,7 @@ import LocationWaiting from './Component/LocationWaiting';
 import MainContainer from './Component/MainContainer';
 import './style/style.css';
 import ReactGA from 'react-ga';
+import StateWaitLoader from './Component/StateWaitLoader';
 ReactGA.initialize('G-06LKF4JYKS');
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
   }, [])
   return (
     <div className="app">
-      {locationAvailable ? (stateList && <MainContainer todayDate={todayDate} stateList={stateList} />) : <LocationWaiting locationCheck={locationCheck} setLocationAvailable={setLocationAvailable} />}
+      {locationAvailable ? (stateList ? <MainContainer todayDate={todayDate} stateList={stateList} /> : <StateWaitLoader />) : <LocationWaiting locationCheck={locationCheck} setLocationAvailable={setLocationAvailable} />}
     </div>
   );
 }

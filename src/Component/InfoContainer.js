@@ -84,10 +84,10 @@ function InfoContainer({ data }) {
                 </div> */}
                 <div className="infoContainer__table--body">
                     {data.centers.map(center => (
-                        <div className="infoContainer__table--bodyEntry">
+                        <div key={center.name} className="infoContainer__table--bodyEntry">
                             <div className="infoContainer__table--body--name"><HomeWork /> {center.name}</div>
                             <div className="infoContainer__table--body--availabilty">{
-                                center.sessions.map(session => (<InfoBlock info={session} />))
+                                center.sessions.map(session => (<InfoBlock key={session.session_id} info={session} />))
                             }</div>
                         </div>
                     ))}

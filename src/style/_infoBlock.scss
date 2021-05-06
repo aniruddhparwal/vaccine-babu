@@ -3,15 +3,21 @@
     flex-direction: column;
     align-items: center;
     color: #EE964B;
-    width:20%;
+    // width:20%;
+    min-width: 25%;
     padding: 10px;
     margin: 10px 10px;
     border-radius: 5px;
     box-shadow:  0 0 10px #000;
     @media #{$media-desktop} {
         width:26%;
+        span:nth-child(1) {
+            .MuiSvgIcon-root{
+                display: none;
+        }
     }
-    span div{
+    }
+    span, div{
         display: flex;
         align-items: center;
         .MuiSvgIcon-root{

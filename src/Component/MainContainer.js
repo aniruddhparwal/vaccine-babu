@@ -2,13 +2,14 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import Loader from './Loader';
 import InfoContainer from './InfoContainer'
-import { InputLabel, MenuItem, Select } from '@material-ui/core';
+import { InputLabel, makeStyles, MenuItem, Modal, Select } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Footer from './Footer';
+
 
 function MainContainer({ stateList, todayDate }) {
     const [data, setData] = useState([])
@@ -91,6 +92,8 @@ function MainContainer({ stateList, todayDate }) {
     const handleChangeFilter = (event) => {
         setFilterValue(event.target.value);
     };
+
+
     return (
         <div className="mainContainer">
             <div className="mainContainer__option">
@@ -144,6 +147,7 @@ function MainContainer({ stateList, todayDate }) {
             <div className="mainContainer__data">
                 {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table"><p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p><InfoContainer data={data} /></div>}
             </div>
+
             <Footer />
 
         </div>
