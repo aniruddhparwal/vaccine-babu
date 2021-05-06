@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/vaccine-babu/static/css/main.49d579b2.chunk.css",
-    "main.js": "/vaccine-babu/static/js/main.6709f9f8.chunk.js",
-    "main.js.map": "/vaccine-babu/static/js/main.6709f9f8.chunk.js.map",
+    "main.css": "/vaccine-babu/static/css/main.c2693992.chunk.css",
+    "main.js": "/vaccine-babu/static/js/main.b0b6e2b4.chunk.js",
+    "main.js.map": "/vaccine-babu/static/js/main.b0b6e2b4.chunk.js.map",
     "runtime-main.js": "/vaccine-babu/static/js/runtime-main.f21f4e7d.js",
     "runtime-main.js.map": "/vaccine-babu/static/js/runtime-main.f21f4e7d.js.map",
     "static/js/2.666dc28c.chunk.js": "/vaccine-babu/static/js/2.666dc28c.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.cee92c5c.chunk.js": "/vaccine-babu/static/js/3.cee92c5c.chunk.js",
     "static/js/3.cee92c5c.chunk.js.map": "/vaccine-babu/static/js/3.cee92c5c.chunk.js.map",
     "index.html": "/vaccine-babu/index.html",
-    "static/css/main.49d579b2.chunk.css.map": "/vaccine-babu/static/css/main.49d579b2.chunk.css.map",
+    "static/css/main.c2693992.chunk.css.map": "/vaccine-babu/static/css/main.c2693992.chunk.css.map",
     "static/js/2.666dc28c.chunk.js.LICENSE.txt": "/vaccine-babu/static/js/2.666dc28c.chunk.js.LICENSE.txt",
     "static/media/loader.dab66597.png": "/vaccine-babu/static/media/loader.dab66597.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f21f4e7d.js",
     "static/js/2.666dc28c.chunk.js",
-    "static/css/main.49d579b2.chunk.css",
-    "static/js/main.6709f9f8.chunk.js"
+    "static/css/main.c2693992.chunk.css",
+    "static/js/main.b0b6e2b4.chunk.js"
   ]
 }
