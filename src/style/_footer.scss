@@ -1,0 +1,15 @@
+.footer{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+    position: sticky;
+    bottom: 0px;
+    background: #849698;
+    border-radius: 8px;
+    @media #{$media-desktop} {
+        font-size: 1rem;
+        }
+    a{
+        text-decoration: none;
+    }
+}

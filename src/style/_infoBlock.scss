@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #EE964B;
     width:20%;
     padding: 10px;
-    margin: 0px 10px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    box-shadow:  0 0 10px #000;
     @media #{$media-desktop} {
         width:26%;
     }
@@ -17,8 +20,11 @@
 }
 }
 .blue{
-    background: cornflowerblue;
+    background: #849698;
+    color: #0d3b66;
 }
 .green{
-    background: green;
+    background: #FA765C;
+    color: #0d3b66;
+
 }

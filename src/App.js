@@ -1,8 +1,11 @@
 
 import { useEffect, useState } from 'react';
+import Footer from './Component/Footer';
 import LocationWaiting from './Component/LocationWaiting';
 import MainContainer from './Component/MainContainer';
 import './style/style.css';
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-06LKF4JYKS');
 
 function App() {
   const [stateList, setStateList] = useState('')

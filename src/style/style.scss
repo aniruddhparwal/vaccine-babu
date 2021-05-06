@@ -6,10 +6,11 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
     margin: 0px;
     padding: 0px;
 }
-
+@import 'variable';
 @import 'app';
 @import 'loader';
 @import 'infoBlock';
 @import 'mainCointainer';
 @import 'infoContainer';
 @import 'locationWaiting';
+@import 'footer';

@@ -2,6 +2,8 @@ import React from 'react'
 import Lottie from 'react-lottie';
 import LocationSearching from './../Lottie Files/LocationSearching.json';
 import locationDenied from './../Lottie Files/LocationDenied.json'
+import Footer from './Footer';
+import { Button } from '@material-ui/core';
 
 function LocationWaiting({ locationCheck, setLocationAvailable }) {
     const defaultOptions = {
@@ -30,7 +32,11 @@ function LocationWaiting({ locationCheck, setLocationAvailable }) {
                     width={200}
                 />
                 <h1>location Denied</h1>
-                <button onClick={() => setLocationAvailable(true)}> Self Entry</button>
+                <Button variant="contained" color="secondary" onClick={() => setLocationAvailable(true)}>
+                    Click Here to Enter Details
+</Button>
+                <Footer />
+
             </div>
                 : <div className="locationWaiting__wait">
                     <Lottie
@@ -38,7 +44,9 @@ function LocationWaiting({ locationCheck, setLocationAvailable }) {
                         height={200}
                         width={200}
                     />
-                    <h1>Waiting for location</h1></div>}
+                    <h1>Waiting for location</h1>
+                    <Footer />
+                </div>}
         </div>
     )
 }

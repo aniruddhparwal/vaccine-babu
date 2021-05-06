@@ -8,6 +8,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Footer from './Footer';
 
 
 function MainContainer({ stateList }) {
@@ -91,7 +92,13 @@ function MainContainer({ stateList }) {
     return (
         <div className="mainContainer">
             <div className="mainContainer__option">
-                <InputLabel id="demo-simple-select-label">State</InputLabel>
+                <InputLabel id="demo-simple-select-label"
+                    style={{
+                        "color": "#0D3B66",
+                        "margin": "20px",
+                        "font-size": "1.5rem"
+                    }}
+                >State</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -103,7 +110,12 @@ function MainContainer({ stateList }) {
                     ))}
                 </Select>
                 {districtList && <>
-                    <InputLabel id="demo-simple-select-label">District</InputLabel>
+                    <InputLabel id="demo-simple-select-label"
+                        style={{
+                            "color": "#0D3B66",
+                            "margin": "20px",
+                            "font-size": "1.5rem"
+                        }}>District</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -127,6 +139,8 @@ function MainContainer({ stateList }) {
             <div className="mainContainer__data">
                 {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table"><p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p><InfoContainer data={data} /></div>}
             </div>
+            <Footer />
+
         </div>
     )
 }

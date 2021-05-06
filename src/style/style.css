@@ -4,7 +4,8 @@
 }
 
 .app {
-  background-color: yellow;
+  background-color: #F4D35E;
+  color: #FAF0CA;
 }
 
 .loader {
@@ -21,7 +22,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: 91vh;
   width: 100vw;
 }
 
@@ -42,9 +43,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #EE964B;
   width: 20%;
   padding: 10px;
-  margin: 0px 10px;
+  margin: 10px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px #000;
+          box-shadow: 0 0 10px #000;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -67,11 +72,13 @@
 }
 
 .blue {
-  background: cornflowerblue;
+  background: #849698;
+  color: #0d3b66;
 }
 
 .green {
-  background: green;
+  background: #FA765C;
+  color: #0d3b66;
 }
 
 .mainContainer__data {
@@ -81,14 +88,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100vw;
 }
 
 .mainContainer__option {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -133,8 +138,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 10px 0px;
-  background: cornsilk;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background: #0d3b66;
+  -webkit-box-shadow: inset 0 0 10px #000;
+          box-shadow: inset 0 0 10px #000;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -205,7 +213,6 @@
 
 .locationWaiting__denied {
   height: 100vh;
-  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,5 +231,26 @@
 .locationWaiting__denied--denied {
   width: 200px;
   height: 200px;
+}
+
+.footer {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  background: #849698;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    font-size: 1rem;
+  }
+}
+
+.footer a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
