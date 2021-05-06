@@ -138,6 +138,45 @@
   font-size: 0.8rem;
 }
 
+.mainContainer__help {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 11px;
+}
+
+.HelpDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.HelpDiv .MuiSvgIcon-root {
+  margin-right: 5px;
+}
+
+.HelpDivMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (max-width: 1024px) {
+  .HelpDivMain div:nth-child(3) {
+    display: none;
+  }
+}
+
 .infoContainer__table--header {
   display: -webkit-box;
   display: -ms-flexbox;

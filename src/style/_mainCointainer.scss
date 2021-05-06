@@ -32,3 +32,29 @@ min-height: 100vh;
     }
 
 }
+.mainContainer__help{
+    position: sticky;
+    bottom: 20px;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 11px;
+}
+.HelpDiv{
+    display: flex;
+    .MuiSvgIcon-root{
+        margin-right: 5px;
+        
+}
+
+}
+.HelpDivMain{
+    display: flex;
+    flex-direction: column;
+    @media #{$media-desktop} {
+        div:nth-child(3) {
+            
+                display: none;
+        
+    }
+    }
+}

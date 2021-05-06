@@ -9,8 +9,31 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Footer from './Footer';
+import { CancelPresentation, CheckBoxOutlineBlank, CheckBoxOutlineBlankOutlined, ConfirmationNumberRounded, EmojiPeople, EventAvailable, Help } from '@material-ui/icons';
 
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        position: 'absolute',
+        width: "50%",
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
+function rand() {
+    return Math.round(Math.random() * 20) - 10;
+}
+function getModalStyle() {
+    const top = 50 + rand();
+    const left = 50 + rand();
 
+    return {
+        top: `41%`,
+        left: `15%`,
+        // transform: `translate(-${top}%, -${left}%)`,
+    };
+}
 function MainContainer({ stateList, todayDate }) {
     const [data, setData] = useState([])
     const [state, setState] = useState('')
@@ -18,7 +41,35 @@ function MainContainer({ stateList, todayDate }) {
     const [district, setDistrict] = useState('')
     const [districtList, setDistrictList] = useState('')
     const [dataAvailable, setDataAvailable] = useState(false)
+    const classes = useStyles();
+    // getModalStyle is not a pure function, we roll the style only on the first render
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false);
 
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const body = (
+        <div style={modalStyle} className={classes.paper}>
+            <h3 id="simple-modal-title">Let's Understand</h3>
+            <p id="simple-modal-description">
+                <div className="HelpDivMain">
+                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#849698" }} /> For Age 45+</div>
+                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#FA765C" }} /> For Age 18+</div>
+                    <div className="HelpDiv"><EventAvailable /> Date</div>
+                    <div className="HelpDiv"><ConfirmationNumberRounded /> Doses Available</div>
+                    <div className="HelpDiv"><CancelPresentation /> Fully Booked</div>
+                    <div className="HelpDiv"><EmojiPeople /> Age</div>
+                </div>
+            </p>
+            {/* <SimpleModal /> */}
+        </div>
+    );
     const getDistrict = (stateid) => {
         fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateid}`)
             .then(responsedistrict => responsedistrict.json())
@@ -147,7 +198,20 @@ function MainContainer({ stateList, todayDate }) {
             <div className="mainContainer__data">
                 {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table"><p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p><InfoContainer data={data} /></div>}
             </div>
-
+            <div className="mainContainer__help">
+                {/* <button type="button" onClick={handleOpen}>
+                    Open Modal
+                </button> */}
+                <Help onClick={handleOpen} fontSize="large" style={{ "color": "#F95738" }} />
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                >
+                    {body}
+                </Modal>
+            </div>
             <Footer />
 
         </div>
