@@ -9,6 +9,7 @@
 }
 .mainContainer__option{
     display: flex;
+    flex-wrap: wrap;
     // width: 100vw;
     justify-content: center;
     align-items: center;
@@ -16,10 +17,15 @@
         display: flex;
     }
 }
+.mainContainer__option--div{
+    flex: 0.5;
+    padding: 0px 20px;
+}
 .mainContainer__table{
     width: 100vw;
     p{
         justify-content: center;
+        color:#0d3b66 ;
     }
 
 }

@@ -10,8 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Footer from './Footer';
 
-
-function MainContainer({ stateList }) {
+function MainContainer({ stateList, todayDate }) {
     const [data, setData] = useState([])
     const [state, setState] = useState('')
     const [filterValue, setFilterValue] = useState(0);
@@ -28,7 +27,7 @@ function MainContainer({ stateList }) {
             })
     }
     const getData = (districtid) => {
-        fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtid}&date=05-05-2021`)
+        fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtid}&date=${todayDate}`)
             .then(response => response.json())
             .then(data => {
                 setData(data)
@@ -40,6 +39,7 @@ function MainContainer({ stateList }) {
     }
     useEffect(() => {
 
+        console.log("Date= ", todayDate);
         navigator.geolocation.getCurrentPosition((position) => {
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&language=en&key=AIzaSyAlELmqkRobpn26ReMLLTirp7GHsaW8vy0`)
                 .then(response => response.json())
@@ -60,7 +60,9 @@ function MainContainer({ stateList }) {
                                             setDistrict(district.district_id)
                                             console.log("district_id is ", district.district_id)
                                             console.log("district_name is ", district)
-                                            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district.district_id}&date=05-05-2021`)
+                                            console.log("Date2= ", todayDate);
+
+                                            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district.district_id}&date=${todayDate}`)
                                                 .then(response => response.json())
                                                 .then(data => {
                                                     setData(data)
@@ -92,24 +94,26 @@ function MainContainer({ stateList }) {
     return (
         <div className="mainContainer">
             <div className="mainContainer__option">
-                <InputLabel id="demo-simple-select-label"
-                    style={{
-                        "color": "#0D3B66",
-                        "margin": "20px",
-                        "font-size": "1.5rem"
-                    }}
-                >State</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={state}
-                    onChange={handleChangeState}
-                >
-                    {stateList.states.map(state => (
-                        <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
-                    ))}
-                </Select>
-                {districtList && <>
+                <div className="mainContainer__option--div">
+                    <InputLabel id="demo-simple-select-label"
+                        style={{
+                            "color": "#0D3B66",
+                            "margin": "20px",
+                            "font-size": "1.5rem"
+                        }}
+                    >State</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={state}
+                        onChange={handleChangeState}
+                    >
+                        {stateList.states.map(state => (
+                            <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
+                        ))}
+                    </Select>
+                </div>
+                {districtList && <div className="mainContainer__option--div">
                     <InputLabel id="demo-simple-select-label"
                         style={{
                             "color": "#0D3B66",
@@ -126,7 +130,8 @@ function MainContainer({ stateList }) {
                             <MenuItem key={district.district_id} value={district.district_id}>{district.district_name}</MenuItem>
                         ))}
                     </Select>
-                </>}
+
+                </div>}
                 {/* {districtList && <FormControl component="fieldset">
                     <FormLabel component="legend">Filter</FormLabel>
                     <RadioGroup className="option" aria-label="gender" name="gender1" value={filterValue} onChange={handleChangeFilter}>

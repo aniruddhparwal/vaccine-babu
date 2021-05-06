@@ -94,6 +94,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -108,6 +110,13 @@
   display: flex;
 }
 
+.mainContainer__option--div {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  padding: 0px 20px;
+}
+
 .mainContainer__table {
   width: 100vw;
 }
@@ -116,6 +125,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: #0d3b66;
 }
 
 .infoContainer__table--header {

@@ -11,7 +11,16 @@ function App() {
   const [stateList, setStateList] = useState('')
   const [locationCheck, setLocationChek] = useState(false)
   const [locationAvailable, setLocationAvailable] = useState(false)
+  const [todayDate, setTodayDate] = useState('')
+
   useEffect(() => {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '-' + mm + '-' + yyyy;
+    setTodayDate(today)
     fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`)
       .then(responsestate => responsestate.json())
       .then(StateList => {
@@ -32,7 +41,7 @@ function App() {
   }, [])
   return (
     <div className="app">
-      {locationAvailable ? (stateList && <MainContainer stateList={stateList} />) : <LocationWaiting locationCheck={locationCheck} setLocationAvailable={setLocationAvailable} />}
+      {locationAvailable ? (stateList && <MainContainer todayDate={todayDate} stateList={stateList} />) : <LocationWaiting locationCheck={locationCheck} setLocationAvailable={setLocationAvailable} />}
     </div>
   );
 }
