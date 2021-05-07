@@ -6,6 +6,9 @@
   <link rel="icon" href="%PUBLIC_URL%/vaccine_babu_icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
+  <meta name="author" content="Aniruddh Parwal" />
+  <meta name="keywords" content="vaccine, resposnive, covid, covid19, covid-19, vaccination" />
+
   <meta name="description" content="Vaccine Babu will help you to find available vaccine center near you" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <meta property="og:image" itemprop="image" content="%PUBLIC_URL%/vaccine_babu_icon.png">
@@ -35,6 +38,13 @@
 </head>
 
 <body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('service-worker.js')
+        .then(function () { console.log("Service Worker Registered"); });
+    }
+  </script>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 </body>

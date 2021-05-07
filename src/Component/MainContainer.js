@@ -79,7 +79,7 @@ function MainContainer({ stateList, todayDate }) {
             })
     }
     const getData = (districtid) => {
-        fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtid}&date=${todayDate}`)
+        fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=${districtid}&date=${todayDate}`)
             .then(response => response.json())
             .then(data => {
                 setData(data)
@@ -114,7 +114,7 @@ function MainContainer({ stateList, todayDate }) {
                                             console.log("district_name is ", district)
                                             console.log("Date2= ", todayDate);
 
-                                            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district.district_id}&date=${todayDate}`)
+                                            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=${district.district_id}&date=${todayDate}`)
                                                 .then(response => response.json())
                                                 .then(data => {
                                                     setData(data)
