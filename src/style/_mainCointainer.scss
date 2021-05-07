@@ -21,8 +21,17 @@ min-height: 100vh;
 .mainContainer__option--div{
     flex: 0.5;
     padding: 0px 20px;
+
 }
-.mainContainer__table{
+.MuiFormControl-root > .MuiFormGroup-root{
+@media #{$media-desktop} {
+        flex-direction: row;
+    }
+}
+.MuiFormControl-root{
+    margin-top: 10px;
+}
+ .mainContainer__table{
     width: 100vw;
     p{
         justify-content: center;

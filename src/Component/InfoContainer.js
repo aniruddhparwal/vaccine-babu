@@ -36,61 +36,25 @@ const useStyles = makeStyles({
 
 function InfoContainer({ data }) {
     const classes = useStyles();
-    var from = data.centers[0].sessions[0].date.split("-")
-    var f = new Date(from[2], from[1] - 1, from[0])
-    console.log(f, "Date")
+    // var from = data.centers[0].sessions[0].date.split("-")
+    // var f = new Date(from[2], from[1] - 1, from[0])
+    // console.log(f, "Date")
     console.log(data, "Data")
     return (
         <div className="infoContainer">
-            {/* {data.centers.map(each => (<h1>{each.center_id}</h1>))} */}
-            {/* <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="customized table">
-                    <TableHead >
-                        <TableRow>
-                            <StyledTableCell>Name of Center</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate()}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 1}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 2}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 3}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 4}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 5}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                            <StyledTableCell align="right">{`${f.getDate() + 6}-${f.getMonth()}-${f.getFullYear()}`}</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {data.centers.map((each) => (
-                            <StyledTableRow key={each.name}>
-                                <StyledTableCell component="th" scope="row">
-                                    {each.name}
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[0] ? <InfoBlock info={each.sessions[0]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[1] ? <InfoBlock info={each.sessions[1]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[2] ? <InfoBlock info={each.sessions[2]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[3] ? <InfoBlock info={each.sessions[3]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[4] ? <InfoBlock info={each.sessions[4]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[5] ? <InfoBlock info={each.sessions[5]} /> : <>NAN</>}</StyledTableCell>
-                                <StyledTableCell align="right">{each.sessions[6] ? <InfoBlock info={each.sessions[6]} /> : <>NAN</>}</StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer> */}
-
-
             <div className="infoContainer__table">
-                {/* <div className="infoContainer__table--header">
-                    <div className="infoContainer__table--header--name">Name of Center</div>
-                    <div className="infoContainer__table--header--availabilty">Avability</div>
-                </div> */}
                 <div className="infoContainer__table--body">
-                    {data.centers.map(center => (
-                        <div key={center.name} className="infoContainer__table--bodyEntry">
-                            <div className="infoContainer__table--body--name"><HomeWork /> {center.name}</div>
-                            <div className="infoContainer__table--body--availabilty">{
-                                center.sessions.map(session => (<InfoBlock key={session.session_id} info={session} />))
-                            }</div>
-                        </div>
-                    ))}
+                    {data.centers.map(center => {
+                        if (center.sessions.length !== 0) {
+                            return (<div key={center.name} className="infoContainer__table--bodyEntry">
+                                <div className="infoContainer__table--body--name"><HomeWork /> {center.name}</div>
+                                <div className="infoContainer__table--body--availabilty">{
+                                    center.sessions.map(session => (<InfoBlock key={session.session_id} info={session} />))
+                                }
+                                </div>
+                            </div>)
+                        }
+                    })}
                 </div>
             </div>
         </div >

@@ -36,8 +36,9 @@ function getModalStyle() {
 }
 function MainContainer({ stateList, todayDate }) {
     const [data, setData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
     const [state, setState] = useState('')
-    const [filterValue, setFilterValue] = useState(0);
+    const [filterValue, setFilterValue] = useState('0');
     const [district, setDistrict] = useState('')
     const [districtList, setDistrictList] = useState('')
     const [dataAvailable, setDataAvailable] = useState(false)
@@ -83,7 +84,7 @@ function MainContainer({ stateList, todayDate }) {
             .then(response => response.json())
             .then(data => {
                 setData(data)
-                // const result = data.centers.map(eachCenter => eachCenter.sessions.map().filter(eachsession => eachsession.min_age_limit == { filterValue }));
+                // setFilteredData(data)
 
                 setDataAvailable(true)
                 console.log("Main data set", data)
@@ -118,6 +119,7 @@ function MainContainer({ stateList, todayDate }) {
                                                 .then(response => response.json())
                                                 .then(data => {
                                                     setData(data)
+                                                    setFilteredData(data)
                                                     setDataAvailable(true)
                                                     console.log("Main data", district, state, data)
                                                 })
@@ -129,6 +131,7 @@ function MainContainer({ stateList, todayDate }) {
                 })
         })
         console.log("app")
+
     }, [])
     const handleChangeState = (event) => {
         setState(event.target.value);
@@ -138,11 +141,56 @@ function MainContainer({ stateList, todayDate }) {
         setDistrict(event.target.value);
         // getDistrict(event.target.value)
         setDataAvailable(false)
+        setFilterValue('0')
         getData(event.target.value)
     };
-    const handleChangeFilter = (event) => {
-        setFilterValue(event.target.value);
-    };
+    // const handleChangeFilter = (event) => {
+    //     setFilterValue(event.target.value);
+
+    //     setFilterValue((state) => {
+    //         console.log(state); // "React is awesome!"
+
+    //         return state;
+    //     });
+    //     console.log(event.target.value, "filtered called", filterValue, data)
+    //     setFilteredData(data)
+    //     console.log(filterValue, "filtered data Before:", filteredData);
+    //     {
+    //         if (filterValue != '0') {
+
+    //             filteredData.centers.map(center => {
+    //                 var temp = center.sessions.filter(session => session.min_age_limit == { filterValue })
+    //                 center.sessions = temp
+    //             })
+
+
+    //         }
+    //     }
+    //     setFilteredData(filteredData)
+    //     console.log("filtered data:", filteredData);
+    // };
+
+    useEffect(() => {
+        var dataStore = data
+        { district && getData(district) }
+        console.log("filter value changed:", filterValue, dataStore)
+        setFilteredData(dataStore)
+        console.log(filterValue, "filtered data Before:", filteredData);
+        {
+            if (filterValue != '0') {
+
+                dataStore.centers.map(center => {
+                    var temp = center.sessions.filter(session => session.min_age_limit == String(filterValue))
+                    center.sessions = temp
+                    console.log("temp", temp)
+                })
+
+
+            }
+        }
+        setFilteredData(dataStore)
+        console.log("filtered data:", filteredData);
+    }, [filterValue, data])
 
 
     return (
@@ -186,17 +234,20 @@ function MainContainer({ stateList, todayDate }) {
                     </Select>
 
                 </div>}
-                {/* {districtList && <FormControl component="fieldset">
+                {districtList && <FormControl component="fieldset">
                     <FormLabel component="legend">Filter</FormLabel>
-                    <RadioGroup className="option" aria-label="gender" name="gender1" value={filterValue} onChange={handleChangeFilter}>
-                        <FormControlLabel value="0" control={<Radio />} label="All" />
-                        <FormControlLabel value="18" control={<Radio />} label="+18" />
-                        <FormControlLabel value="45" control={<Radio />} label="+45" />
+                    <RadioGroup className="option" aria-label="gender" name="gender1" value={filterValue} onChange={(e) => { setFilterValue(e.target.value) }}>
+                        <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="All" />
+                        <FormControlLabel style={{ "color": "#000" }} value='18' control={<Radio />} label="+18" />
+                        <FormControlLabel style={{ "color": "#000" }} value='45' control={<Radio />} label="+45" />
                     </RadioGroup>
-                </FormControl>} */}
+                </FormControl>}
             </div>
             <div className="mainContainer__data">
-                {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table"><p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p><InfoContainer data={data} /></div>}
+                {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table">
+                    <p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p>
+                    <InfoContainer data={filteredData} />
+                </div>}
             </div>
             <div className="mainContainer__help">
                 {/* <button type="button" onClick={handleOpen}>
