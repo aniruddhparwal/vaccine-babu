@@ -47,7 +47,14 @@ function InfoContainer({ data }) {
                     {data.centers.map(center => {
                         if (center.sessions.length !== 0) {
                             return (<div key={center.name} className="infoContainer__table--bodyEntry">
-                                <div className="infoContainer__table--body--name"><HomeWork /> {center.name}</div>
+                                <div className="infoContainer__table--body--name">
+                                    <div className="infoContainer__table--body--name--name">
+                                        <HomeWork /> {center.name}
+                                    </div>
+                                    <div className="infoContainer__table--body--name--address">
+                                        {center.address} , {center.pincode}
+                                    </div>
+                                </div>
                                 <div className="infoContainer__table--body--availabilty">{
                                     center.sessions.map(session => (<InfoBlock key={session.session_id} info={session} />))
                                 }
