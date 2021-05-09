@@ -1,10 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 * {
   margin: 0px;
   padding: 0px;
 }
 
 .app {
-  background-color: #F4D35E;
+  background-color: #A6A670;
   color: #FAF0CA;
   padding: 5px;
 }
@@ -76,12 +77,12 @@
 }
 
 .blue {
-  background: #849698;
+  background: #C4C27A;
   color: #0d3b66;
 }
 
 .green {
-  background: #FA765C;
+  background: #ECFEAA;
   color: #0d3b66;
 }
 
@@ -98,6 +99,10 @@
           justify-content: center;
 }
 
+.MuiRadio-colorSecondary.Mui-checked {
+  color: #626267 !important;
+}
+
 .mainContainer__option {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,6 +115,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  font-family: "Roboto Slab", serif;
+  top: 0;
+  background: #A6A670;
 }
 
 .mainContainer__option .option {
@@ -125,6 +135,15 @@
   padding: 0px 20px;
 }
 
+.mainContainer__option--div .MuiFormLabel-root {
+  font-family: "Roboto Slab", serif;
+  color: #626267 !important;
+}
+
+.mainContainer__option--div .MuiSelect-root {
+  color: #55553a !important;
+}
+
 @media only screen and (max-width: 1024px) {
   .MuiFormControl-root > .MuiFormGroup-root {
     -webkit-box-orient: horizontal;
@@ -132,6 +151,10 @@
         -ms-flex-direction: row;
             flex-direction: row;
   }
+}
+
+.MuiTypography-root {
+  color: #55553a !important;
 }
 
 .MuiFormControl-root {
@@ -212,7 +235,7 @@
   display: flex;
   margin: 10px 5px;
   border-radius: 5px;
-  background: #0d3b66;
+  background: #86836D;
   -webkit-box-shadow: inset 0 0 10px #000;
           box-shadow: inset 0 0 10px #000;
 }
@@ -244,32 +267,32 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-              -ms-flex-direction: column;
-                  flex-direction: column;
-          padding: 10px;
-        }
-        
-        .infoContainer__table--body--name .MuiSvgIcon-root {
-          margin-right: 10px;
-        }
-        
-        @media only screen and (max-width: 1024px) {
-          .infoContainer__table--body--name {
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-          }
-        }
-        
-        .infoContainer__table--body--name .infoContainer__table--body--name--address {
-          font-size: 0.7rem;
-        }
-        
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+.infoContainer__table--body--name .MuiSvgIcon-root {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .infoContainer__table--body--name {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.infoContainer__table--body--name .infoContainer__table--body--name--address {
+  font-size: 0.7rem;
+}
+
 .locationWaiting__wait {
   height: 100vh;
   width: 100vw;
@@ -317,7 +340,7 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0px;
-  background: #849698;
+  background: #626267;
   border-radius: 8px;
 }
 
@@ -329,6 +352,7 @@
 
 .footer a {
   text-decoration: none;
+  color: #8d2e0c;
 }
 
 .stateWaitLoader {

@@ -60,8 +60,8 @@ function MainContainer({ stateList, todayDate }) {
             <h3 id="simple-modal-title">Let's Understand</h3>
             <p id="simple-modal-description">
                 <div className="HelpDivMain">
-                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#849698" }} /> For Age 45+</div>
-                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#FA765C" }} /> For Age 18+</div>
+                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#C4C27A" }} /> For Age 45+</div>
+                    <div className="HelpDiv"><CheckBoxOutlineBlank style={{ "background": "#ECFEAA" }} /> For Age 18+</div>
                     <div className="HelpDiv"><EventAvailable /> Date</div>
                     <div className="HelpDiv"><ConfirmationNumberRounded /> Doses Available</div>
                     <div className="HelpDiv"><CancelPresentation /> Fully Booked</div>
@@ -235,17 +235,17 @@ function MainContainer({ stateList, todayDate }) {
 
                 </div>}
                 {districtList && <FormControl component="fieldset">
-                    <FormLabel component="legend">Filter</FormLabel>
-                    <RadioGroup className="option" aria-label="gender" name="gender1" value={filterValue} onChange={(e) => { setFilterValue(e.target.value) }}>
+                    {/* <FormLabel component="legend">Filter</FormLabel> */}
+                    <RadioGroup className="option" color={"626267"} aria-label="gender" name="gender1" value={filterValue} onChange={(e) => { setFilterValue(e.target.value) }}>
                         <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="All" />
-                        <FormControlLabel style={{ "color": "#000" }} value='18' control={<Radio />} label="+18" />
-                        <FormControlLabel style={{ "color": "#000" }} value='45' control={<Radio />} label="+45" />
+                        <FormControlLabel style={{ "color": "#000" }} value='18' control={<Radio />} label="18+" />
+                        <FormControlLabel style={{ "color": "#000" }} value='45' control={<Radio />} label="45+" />
                     </RadioGroup>
                 </FormControl>}
             </div>
             <div className="mainContainer__data">
                 {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table">
-                    <p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p>
+                    {/* <p>You are seeing data of {districtList.map(each => { if (each.district_id == district) { return each.district_name } })} district in {stateList.states.map(each => { if (each.state_id == state) { return each.state_name } })}</p> */}
                     <InfoContainer data={filteredData} />
                 </div>}
             </div>

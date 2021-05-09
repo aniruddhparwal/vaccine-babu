@@ -4,12 +4,13 @@
     margin: 10px;
     position: sticky;
     bottom: 0px;
-    background: #849698;
+    background: $mainContainer-optionColor;
     border-radius: 8px;
     @media #{$media-desktop} {
         font-size: 1rem;
         }
     a{
         text-decoration: none;
+        color: #8d2e0c;
     }
 }
