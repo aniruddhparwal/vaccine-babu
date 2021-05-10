@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/vaccine-babu/static/css/main.e5a621ff.chunk.css",
-    "main.js": "/vaccine-babu/static/js/main.97cf0fc3.chunk.js",
-    "main.js.map": "/vaccine-babu/static/js/main.97cf0fc3.chunk.js.map",
+    "main.js": "/vaccine-babu/static/js/main.3017c13e.chunk.js",
+    "main.js.map": "/vaccine-babu/static/js/main.3017c13e.chunk.js.map",
     "runtime-main.js": "/vaccine-babu/static/js/runtime-main.14503459.js",
     "runtime-main.js.map": "/vaccine-babu/static/js/runtime-main.14503459.js.map",
     "static/js/2.c302b2be.chunk.js": "/vaccine-babu/static/js/2.c302b2be.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.14503459.js",
     "static/js/2.c302b2be.chunk.js",
     "static/css/main.e5a621ff.chunk.css",
-    "static/js/main.97cf0fc3.chunk.js"
+    "static/js/main.3017c13e.chunk.js"
   ]
 }
