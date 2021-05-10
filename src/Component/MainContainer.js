@@ -48,6 +48,9 @@ function MainContainer({ stateList, todayDate }) {
     const [filteredData, setFilteredData] = useState([])
     const [state, setState] = useState('')
     const [filterValue, setFilterValue] = useState('0');
+    const [filterVaccine, setFilterVaccine] = useState('0');
+    const [filterAvability, setFilterAvability] = useState('1');
+    const [filterPrice, setFilterPrice] = useState('0');
     const [district, setDistrict] = useState('')
     const [districtList, setDistrictList] = useState('')
     const [dataAvailable, setDataAvailable] = useState(false)
@@ -145,6 +148,7 @@ function MainContainer({ stateList, todayDate }) {
     }, [])
     const handleChangeState = (event) => {
         setState(event.target.value);
+        setDistrict('')
         getDistrict(event.target.value)
     };
     const handleChangeDistrict = (event) => {
@@ -198,9 +202,33 @@ function MainContainer({ stateList, todayDate }) {
 
             }
         }
+        {
+            if (filterVaccine != '0') {
+
+                dataStore.centers.map(center => {
+                    var temp = center.sessions.filter(session => session.vaccine == String(filterVaccine))
+                    center.sessions = temp
+                    console.log("temp", temp)
+                })
+
+
+            }
+        }
+        {
+            if (filterAvability != '1') {
+
+                dataStore.centers.map(center => {
+                    var temp = center.sessions.filter(session => session.available_capacity != String(filterAvability))
+                    center.sessions = temp
+                    console.log("temp", temp)
+                })
+
+
+            }
+        }
         setFilteredData(dataStore)
         console.log("filtered data:", filteredData);
-    }, [filterValue, data])
+    }, [filterValue, data, filterVaccine, filterAvability])
 
 
     return (
@@ -249,14 +277,30 @@ function MainContainer({ stateList, todayDate }) {
                         </Select>
                     </FormControl>
                 </div>}
-                {districtList && <FormControl component="fieldset">
-                    {/* <FormLabel component="legend">Filter</FormLabel> */}
-                    <RadioGroup className="option" color={"626267"} aria-label="gender" name="gender1" value={filterValue} onChange={(e) => { setFilterValue(e.target.value) }}>
-                        <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="All" />
-                        <FormControlLabel style={{ "color": "#000" }} value='18' control={<Radio />} label="18+" />
-                        <FormControlLabel style={{ "color": "#000" }} value='45' control={<Radio />} label="45+" />
-                    </RadioGroup>
-                </FormControl>}
+                {district &&
+                    <div className="mainContainer__filer--select">
+                        <FormControl component="fieldset">
+                            <RadioGroup className="option" color={"626267"} aria-label="gender" name="gender1" value={filterValue} onChange={(e) => { setFilterValue(e.target.value) }}>
+                                <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="All" />
+                                <FormControlLabel style={{ "color": "#000" }} value='18' control={<Radio />} label="18+" />
+                                <FormControlLabel style={{ "color": "#000" }} value='45' control={<Radio />} label="45+" />
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset">
+                            <RadioGroup className="option" color={"626267"} aria-label="gender" name="gender1" value={filterVaccine} onChange={(e) => { setFilterVaccine(e.target.value) }}>
+                                <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="All" />
+                                <FormControlLabel style={{ "color": "#000" }} value='COVAXIN' control={<Radio />} label="COVAXIN" />
+                                <FormControlLabel style={{ "color": "#000" }} value='COVISHIELD' control={<Radio />} label="COVISHIELD" />
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset">
+                            <RadioGroup className="option" color={"626267"} aria-label="gender" name="gender1" value={filterAvability} onChange={(e) => { setFilterAvability(e.target.value) }}>
+                                <FormControlLabel style={{ "color": "#000" }} value='1' control={<Radio />} label="All" />
+                                <FormControlLabel style={{ "color": "#000" }} value='0' control={<Radio />} label="Only Available" />
+                            </RadioGroup>
+                        </FormControl>
+                    </div>
+                }
             </div>
             <div className="mainContainer__data">
                 {!dataAvailable ? <Loader district={district} /> : <div className="mainContainer__table">

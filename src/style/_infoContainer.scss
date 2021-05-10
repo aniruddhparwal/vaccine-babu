@@ -56,6 +56,22 @@
     justify-content: center;
     display: flex;
     }
+    .infoContainer__table--body--name--name{
+        display: flex;
+        div{
+            border: 1px solid;
+            border-radius: 20px;
+            padding: 0px 10px;
+            margin-left: 10px;
+            border-color: transparent;
+        }
+        .free{
+            background: green;
+        }
+        .paid{
+            background: red;
+        }
+    }
     .infoContainer__table--body--name--address{
         font-size: 0.7rem;
     }

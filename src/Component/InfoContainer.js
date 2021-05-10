@@ -49,7 +49,7 @@ function InfoContainer({ data }) {
                             return (<div key={center.name} className="infoContainer__table--bodyEntry">
                                 <div className="infoContainer__table--body--name">
                                     <div className="infoContainer__table--body--name--name">
-                                        <HomeWork /> {center.name}
+                                        <HomeWork /> {center.name} <div className={`${center.fee_type == "Free" ? "free" : "paid"}`}> {center.fee_type}</div>
                                     </div>
                                     <div className="infoContainer__table--body--name--address">
                                         {center.address} , {center.pincode}

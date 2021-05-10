@@ -25,6 +25,10 @@ min-height: 100vh;
         display: flex;
     }
 }
+.mainContainer__filer--select{
+    display: flex;
+    flex-direction: column;
+}
 .mainContainer__option--div{
     flex: 0.5;
     padding: 0px 20px;
