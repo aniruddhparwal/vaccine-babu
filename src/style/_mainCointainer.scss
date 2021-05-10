@@ -30,8 +30,9 @@ min-height: 100vh;
     padding: 0px 20px;
     .MuiFormLabel-root{
     font-family: $roboto-slab;
-
-        color:$mainContainer-optionColor !important;
+    margin: auto !important;
+    font-size: initial !important;
+    color:$mainContainer-optionColor !important;
     }
     .MuiSelect-root{
         color: $dropdown-options !important;
@@ -39,6 +40,7 @@ min-height: 100vh;
 
 }
 .MuiFormControl-root > .MuiFormGroup-root{
+    flex-direction: row;
 @media #{$media-desktop} {
         flex-direction: row;
     }
@@ -61,7 +63,7 @@ min-height: 100vh;
 }
 .mainContainer__help{
     position: sticky;
-    bottom: 20px;
+    bottom: 50px;
     justify-content: flex-end;
     display: flex;
     margin-right: 11px;

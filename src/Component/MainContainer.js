@@ -21,6 +21,15 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
     },
 }));
+const useStylesSelect = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
 function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
@@ -43,6 +52,7 @@ function MainContainer({ stateList, todayDate }) {
     const [districtList, setDistrictList] = useState('')
     const [dataAvailable, setDataAvailable] = useState(false)
     const classes = useStyles();
+    const classesSelect = useStylesSelect();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
@@ -197,42 +207,47 @@ function MainContainer({ stateList, todayDate }) {
         <div className="mainContainer">
             <div className="mainContainer__option">
                 <div className="mainContainer__option--div">
-                    <InputLabel id="demo-simple-select-label"
-                        style={{
-                            "color": "#0D3B66",
-                            "margin": "20px",
-                            "font-size": "1.5rem"
-                        }}
-                    >State</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={state}
-                        onChange={handleChangeState}
-                    >
-                        {stateList.states.map(state => (
-                            <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
-                        ))}
-                    </Select>
+                    <FormControl className={classesSelect.formControl}>
+
+                        <InputLabel id="demo-simple-select-label"
+                            style={{
+                                "color": "#0D3B66",
+                                "margin": "20px",
+                                "font-size": "1.5rem"
+                            }}
+                        >State</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={state}
+                            onChange={handleChangeState}
+                        >
+                            {stateList.states.map(state => (
+                                <MenuItem key={state.state_id} value={state.state_id}>{state.state_name}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
                 {districtList && <div className="mainContainer__option--div">
-                    <InputLabel id="demo-simple-select-label"
-                        style={{
-                            "color": "#0D3B66",
-                            "margin": "20px",
-                            "font-size": "1.5rem"
-                        }}>District</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={district}
-                        onChange={handleChangeDistrict}
-                    >
-                        {districtList.map(district => (
-                            <MenuItem key={district.district_id} value={district.district_id}>{district.district_name}</MenuItem>
-                        ))}
-                    </Select>
+                    <FormControl className={classesSelect.formControl}>
 
+                        <InputLabel id="demo-simple-select-label"
+                            style={{
+                                "color": "#0D3B66",
+                                "margin": "20px",
+                                "font-size": "1.5rem"
+                            }}>District</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={district}
+                            onChange={handleChangeDistrict}
+                        >
+                            {districtList.map(district => (
+                                <MenuItem key={district.district_id} value={district.district_id}>{district.district_name}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>}
                 {districtList && <FormControl component="fieldset">
                     {/* <FormLabel component="legend">Filter</FormLabel> */}
