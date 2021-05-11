@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -35,16 +35,29 @@ const useStyles = makeStyles({
 });
 
 function InfoContainer({ data }) {
+    const [noCenter, setNoCenter] = useState(true)
     const classes = useStyles();
     // var from = data.centers[0].sessions[0].date.split("-")
     // var f = new Date(from[2], from[1] - 1, from[0])
     // console.log(f, "Date")
-    console.log(data, "Data")
+
+    useEffect(() => {
+        setNoCenter(true)
+        console.log(data, "Data")
+
+        if (data) {
+            data.centers.map(center => {
+                if (center.sessions.length !== 0) {
+                    setNoCenter(false)
+                }
+            })
+        }
+    }, [data])
     return (
         <div className="infoContainer">
             <div className="infoContainer__table">
                 <div className="infoContainer__table--body">
-                    {data.centers.map(center => {
+                    {data && data.centers.map(center => {
                         if (center.sessions.length !== 0) {
                             return (<div key={center.name} className="infoContainer__table--bodyEntry">
                                 <div className="infoContainer__table--body--name">
@@ -63,6 +76,7 @@ function InfoContainer({ data }) {
                         }
                     })}
                 </div>
+                {noCenter && <h1>No Center Avaliable</h1>}
             </div>
         </div >
     )

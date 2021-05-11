@@ -18,7 +18,7 @@ function StateWaitLoader() {
                 height={200}
                 width={200}
             />
-            <h1>Wait, We are build something amazing!!</h1>
+            <h1>Wait, We are building something amazing!!</h1>
         </div>
     )
 }
